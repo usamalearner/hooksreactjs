@@ -1,23 +1,64 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState } from 'react';
 
 function App() {
+  // const [arr,setArr] = useState(['car'])
+
+  // const handleClick=()=>{
+
+  //   setArr([...arr,'bike','truck'])
+  // }
+
+  // const [obj,setObj] = useState({
+  //   name:'syed usama ali',
+  //   email:'syedusama@gmail.com'
+  // })
+  // const handleClick=()=>{
+  //   setObj({
+  //     ...obj,
+  //     email:'syedusamaali@gmail.com',
+  //     school:'gps'
+  //   })
+  //   console.log(obj)
+  // }
+  const [name,setName] = useState('usama')
+  useEffect(()=>{
+    console.log('i will run pn evry render')
+  })
+
+  useEffect(()=>{
+    console.log('i will run only on first render')
+
+    // for api call
+  },[])
+
+  useEffect(()=>{
+    console.log('i will run everytime when name update ')
+  },[name])
+
+  useEffect(()=>{
+    return()=>{
+      console.log('when unmount')
+    }
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+   
+    <div>
+      
+      {/* {arr.map((v,i)=>{return<ul key={i}>
+        {v}
+      </ul>})} */}
+      {/* <button onClick={()=>console.log("hi")}>update</button> */}
+      {/* <button onClick={()=>setArr([...arr,'bike'])}>update</button> */}
+      {/* <button onClick={handleClick}>update</button> */}
+
+      {/* {obj.name}
+      {obj.email}
+      <button onClick={handleClick}>update</button> */}
+
+      <h1>{name}</h1>
+      <button onClick={()=>setName('ali')}>update</button>
     </div>
   );
 }
